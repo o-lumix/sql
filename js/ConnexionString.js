@@ -15,7 +15,7 @@ function generateConnectionString() {
     };
 
     // Sélection de l'IP de l'hébergeur
-    const ip = hostIPs[host.toLowerCase()] || "default IP";  // Remplacer "default IP" par une IP par défaut
+    const ip = hostIPs[host.toLowerCase()] || "SOON";  // Remplacer "default IP" par une IP par défaut
 
     if (password.includes("=")) {
         document.getElementById('passwordWarning').style.display = 'block';
