@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Lumix SQL</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
     <div class="main-content">
         <form id="dbForm">
-            <label for="dbName">Nom de la database</label><br>
+             <label for="dbName">Name of Database</label><br>
             <input type="text" id="dbName" name="dbName" required><br>
-            <label for="uid">Nom d'utilisateur</label><br>
+            <label for="uid">Username</label><br>
             <input type="text" id="uid" name="uid" required><br>
-            <label for="password">Mot de passe</label><br>
+            <label for="password">Password</label><br>
             <input type="password" id="password" name="password" required oninput="validatePassword()"><br><br>
-            <label for="host">Hébergeur</label><br>
+            <label for="host">Host</label><br>
             <select id="host" name="host" required>
                 <option value="epycore">Epycore</option>
                 <option value="kheberg">KHeberg</option>
-                <option value="easthost">Autre</option>
-                <option value="westhost">Autre</option>
+                <option value="Soon">Soon</option>
+                <option value="Soon">Soon</option>
             </select><br><br>
             <center>
-            <button type="button" onclick="generateConnectionString()" id="generateButton">Générer</button>
+            <button type="button" onclick="generateConnectionString()" id="generateButton">Generate</button>
             <br><br><br>
             <p id="connectionString"></p>
             <p id="passwordWarning" style="color: red; display: none;">Un "=" a été trouvé dans votre mot de passe, il faut le réinitialiser.</p>
@@ -31,7 +30,7 @@
         </form>
         <footer>
             <p>&copy; 2024 Lumix</p>
-            <p>Si vous souhaitez d'autres hébergeurs envoyez moi un message discord (LumixFR) </p>
+            <p>If you want other hosts send me a discord message (LumixFR)</p>
         </footer>
     </div>
     <script src="js/ConnexionString.js"></script>
