@@ -10,8 +10,8 @@ function generateConnectionString() {
     const hostIPs = {
         "epycore": "185.200.246.238:3306",
         "kheberg": "panel.kheberg.fr",
-        "easthost": "192.168.1.3",
-        "westhost": "192.168.1.4"
+        "soon": "SOON",
+        "soon2": "SOON"
     };
 
     // Sélection de l'IP de l'hébergeur
