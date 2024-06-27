@@ -1,20 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Lumix SQL</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .language-selector button {
+            background-color: #333333; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+        .language-selector button:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #333333;
+        }
+    </style>
 </head>
 <body>
     <div class="main-content">
         <form id="dbForm">
-             <label for="dbName">Name of Database</label><br>
+            <label for="dbName" data-en="Name of Database" data-fr="Nom de la base de données">Nom de la base de données</label><br>
             <input type="text" id="dbName" name="dbName" required><br>
-            <label for="uid">Username</label><br>
+            <label for="uid" data-en="Username" data-fr="Nom d'utilisateur">Nom d'utilisateur</label><br>
             <input type="text" id="uid" name="uid" required><br>
-            <label for="password">Password</label><br>
+            <label for="password" data-en="Password" data-fr="Mot de passe">Mot de passe</label><br>
             <input type="password" id="password" name="password" required oninput="validatePassword()"><br><br>
-            <label for="host">Host</label><br>
+            <label for="host" data-en="Host" data-fr="hebergeur">Hébergeur</label><br>
             <select id="host" name="host" required>
                 <option value="epycore">Epycore</option>
                 <option value="kheberg">KHeberg</option>
@@ -22,19 +47,31 @@
                 <option value="soon2">Soon</option>
             </select><br><br>
             <center>
-            <button type="button" onclick="generateConnectionString()" id="generateButton">Generate</button>
+            <button type="button" onclick="generateConnectionString()" id="generateButton" data-en="Generate" data-fr="Générer">Générer</button>
             <br><br><br>
             <p id="connectionString"></p>
-            <p id="passwordWarning" style="color: red; display: none;">Un "=" a été trouvé dans votre mot de passe, il faut le réinitialiser.</p>
+            <p id="passwordWarning" style="color: red; display: none;" data-en="An '=' was found in your password, it needs to be reset." data-fr="Un '=' a été trouvé dans votre mot de passe, il faut le réinitialiser.">Un '=' a été trouvé dans votre mot de passe, il faut le réinitialiser.</p>
             </center>
         </form>
         <footer>
             <p>&copy; 2024 Lumix</p>
-            <p>If you want other hosts send me a discord message (LumixFR)</p>
+            <p data-en="If you want other hosts send me a discord message (LumixFR)" data-fr="Si vous souhaitez d'autres hôtes, envoyez-moi un message sur Discord (LumixFR)">Si vous souhaitez d'autres hôtes, envoyez-moi un message sur Discord (LumixFR)</p>
         </footer>
+    </div>
+    <div class="language-selector">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('fr')">Français</button>
     </div>
     <script src="js/ConnexionString.js"></script>
     <script src="js/Password.js"></script>
     <script src="js/CheckAllInput.js"></script>
+    <script>
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
 </body>
 </html>
