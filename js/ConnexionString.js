@@ -9,7 +9,7 @@ function generateConnectionString() {
     // Mapping hébergeurs vers IPs
     const hostIPs = {
         "epycore": "185.200.246.238:3306",
-        "kheberg": "panel.kheberg.fr",
+        "kheberg": "83.150.218.171",
         "soon": "SOON",
         "soon2": "SOON"
     };
