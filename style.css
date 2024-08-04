@@ -1,43 +1,69 @@
+@import url(https://fonts.bunny.net/css?family=jetbrains-mono:600|martian-mono:400);
+
+/* All elements reset and custom fonts */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Martian Mono', sans-serif;
 }
 
+/* Make selected text orange */
+*::selection {
+    background-color: #ffaa00;
+}
+
+/* Body styles */
 body {
-    background-color: #121212;
+    background-color: #292626; /* Dark gray background */
     color: #E0E0E0;
     font-size: 16px;
     line-height: 1.6;
 }
 
+/* Image styles */
 img {
     width: 45%;
 }
 
+/* Link styles with cool underline effect */
 a {
-    color: #BB86FC;
+    color: #ffaa00; /* Orange color */
+    text-decoration: none;
+    position: relative;
 }
 
-a:hover {
-    color: #03DAC6;
+a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 2px solid #ff9900;
+    transition: 0.4s;
 }
 
+a:hover:after {
+    width: 100%;
+}
+
+/* Main content container */
 .main-content {
     padding: 20px;
     max-width: 800px;
     margin: auto;
 }
 
+/* Form styling */
 form {
-    background-color: #333333;
+    background-color: #302f2f; /* Dark gray background */
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
 form label {
-    color: #BB86FC;
+    color: #ffaa00; /* Orange color */
     font-weight: bold;
 }
 
@@ -51,6 +77,7 @@ form input {
     color: white;
 }
 
+/* Button styling */
 button {
     background-color: #03DAC6;
     color: #121212;
@@ -65,6 +92,7 @@ button:hover {
     background-color: #BB86FC;
 }
 
+/* Footer styling */
 footer {
     text-align: center;
     margin-top: 40px;
@@ -72,10 +100,104 @@ footer {
     color: #E0E0E0;
 }
 
+/* Password warning */
 #passwordWarning {
     font-weight: bold;
 }
 
+/* Connection string */
 #connectionString {
     cursor: pointer;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #1f1e1e;
+    color: #fff;
+    text-align: center;
+    border-radius: 25px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 0%;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1rem;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1f1e1e transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Main section */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card styling */
+.card {
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: #302f2f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+/* Social icons styling */
+.social-icons {
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+.social-icons a {
+    margin-right: 1rem;
+    color: #fff;
+}
+
+.social-icons a:hover, .social-icons a:after {
+    margin-right: 1rem;
+    color: #ffaa00;
+}
+
+/* Username styling */
+#username {
+    font-family: 'Martian Mono';
+    font-size: clamp(3rem, 10vw, 10rem);
+    color: #ffaa00;
+}
+
+#username::selection {
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .card {
+        padding: 1rem;
+    }
+    #username {
+        font-size: clamp(2rem, 7vw, 7rem);
+    }
 }
